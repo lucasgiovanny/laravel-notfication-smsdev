@@ -1,0 +1,15 @@
+{
+    "name": "lucasgiovanny/laravel-notification-smsdev",
+    "description": "Laravel notification package to use SMSDev SMS service.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lucas Giovanny",
+            "email": "lucasgiovanny@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^5.2"
+    }
+}
