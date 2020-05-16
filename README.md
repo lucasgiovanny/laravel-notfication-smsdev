@@ -27,7 +27,7 @@ This package can be installed via composer:
    // config/services.php
    ...
    'smsdev' => [
-   	'api_key' => env('SMS77_API_KEY')
+   	'api_key' => env('SMSDEV_API_KEY')
    ],
    ...
    ```
