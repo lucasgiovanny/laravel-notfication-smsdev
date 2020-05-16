@@ -25,6 +25,10 @@
       "lucasgiovanny\\SmsDev\\Tests\\": "tests"
     }
   },
+  "scripts": {
+    "test": "phpunit",
+    "test:coverage": "phpunit --coverage-text --coverage-clover=coverage.clover"
+  },
   "extra": {
     "laravel": {
       "providers": [
