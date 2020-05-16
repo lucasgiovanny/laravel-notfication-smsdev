@@ -50,6 +50,8 @@ class SmsDev
             throw CouldNotSendNotification::apiKeyNotProvided();
         }
 
+        $params['key'] = $this->apiKey;
+
         try {
             return $this->httpClient()->get($this->apiUrl . $endpoint, [
                 'query' => $params
