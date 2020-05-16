@@ -1,15 +1,29 @@
 {
-    "name": "lucasgiovanny/laravel-notification-smsdev",
-    "description": "Laravel notification package to use SMSDev SMS service.",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Lucas Giovanny",
-            "email": "lucasgiovanny@gmail.com"
-        }
-    ],
-    "require": {},
-    "require-dev": {
-        "orchestra/testbench": "^5.2"
+  "name": "lucasgiovanny/laravel-notification-smsdev",
+  "description": "Laravel notification package to use SMSDev SMS service.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Lucas Giovanny",
+      "email": "lucasgiovanny@gmail.com"
     }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "guzzlehttp/guzzle": "~6.0",
+    "illuminate/notifications": "~5.5 || ~6.0 || ~7.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "lucasgiovanny\\SmsDev\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "lucasgiovanny\\SmsDev\\Tests\\": "tests"
+    }
+  }
 }
