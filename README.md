@@ -5,12 +5,19 @@ This package makes it easy to send notifications using [SMSDev](https://www.smsd
 ## Contents
 
 - [Installation](#installation) - [Setting up the SMSDev service](#setting-up-the-SMSDev-service)
+
 - [Usage](#usage) - [Available Message methods](#available-message-methods)
+
 - [Changelog](#changelog)
+
 - [Testing](#testing)
+
 - [Security](#security)
+
 - [Contributing](#contributing)
+
 - [Credits](#credits)
+
 - [License](#license)
 
 ## Installation
@@ -23,46 +30,66 @@ This package can be installed via composer:
 
 1. Add the API key to the `services.php` config file:
 
-   ```php
-   // config/services.php
-   ...
-   'smsdev' => [
-   	'api_key' => env('SMSDEV_API_KEY')
-   ],
-   ...
-   ```
+```php
+
+// config/services.php
+
+...
+
+'smsdev'  => [
+
+'api_key'  =>  env('SMSDEV_API_KEY')
+
+],
+
+...
+
+```
+
+2. Add you API Key from [SMSDev](https://www.smsdev.com.br) to your `.env` file
 
 ## Usage
 
-You can use this channel by adding `SmsDevChannel::class` to the array in the `via()` method of your notification class. You need to add the `toSmsdev()` method which should return a `new SmsDevMessage()` object.
+1. First you need to add the function `routeNotificationFor` in the `User` model:
+
+```php
+	public function routeNotificationFor()
+	{
+		return $this->phone_number; //replace with the phone number field you have in your model
+	}
+```
+
+2. Now, you can use this channel by adding `SmsDevChannel::class` to the array in the `via()` method of your notification class. You need to add the `toSmsdev()` method which should return a `new SmsDevMessage()` object.
 
 ```php
 <?php
 
-namespace App\Notifications;
+namespace  App\Notifications;
 
-use Illuminate\Notifications\Notification;
-use lucasgiovanny\SmsDev\SmsDevChannel;
-use lucasgiovanny\SmsDev\SmsDevMessage;
+use  Illuminate\Notifications\Notification;
+use  lucasgiovanny\SmsDev\SmsDevChannel;
+use  lucasgiovanny\SmsDev\SmsDevMessage;
 
-class InvoicePaid extends Notification
+class  InvoicePaid  extends  Notification
 {
-    public function via($notifiable)
-    {
-        return [SmsDevChannel::class];
-    }
+	public  function  via($notifiable)
+	{
+		return [SmsDevChannel::class];
+	}
 
-    public function toSmsdev() {
-        return (new SmsDevMessage('Invoice paid!'));
-    }
+	public  function  toSmsdev() {
+		return (new  SmsDevMessage('Invoice paid!'));
+	}
 }
 ```
 
 ### Available Message methods
 
 - `getPayloadValue($key)`: Returns payload value for a given key.
+
 - `content(string $message)`: Sets SMS message text.
-- `to(string $number)`: Set recipients number (international format).
+
+- `to(string $number)`: Set manually the recipients number (international format).
 
 ## Changelog
 
@@ -71,7 +98,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Testing
 
 ```bash
+
 $ composer test
+
 ```
 
 ## Security
