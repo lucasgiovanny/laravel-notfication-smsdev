@@ -1,6 +1,6 @@
 <?php
 
-namespace lucasgiovanny\SmsDev\Tests;
+namespace lucasgiovanny\SmsDev;
 
 use GuzzleHttp\Client as HttpClient;
 use Illuminate\Support\ServiceProvider;
