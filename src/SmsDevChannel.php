@@ -27,8 +27,8 @@ class SmsDevChannel
 
         if (!$message->hasToNumber()) {
 
-            if (!$to = $notifiable->phone_number) {
-                $to = $notifiable->routeNotificationFor('sms');
+            if (!$to = $notifiable->routeNotificationFor('smsdev')) {
+                throw CouldNotSendNotification::phoneNumberNotProvided();
             }
 
             if (!$to) {
